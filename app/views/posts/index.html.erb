@@ -1,0 +1,12 @@
+<h1>Submit a link</h1>
+<%= render partial: 'form' %><br/>
+<ol>
+  <% @posts.each do |post| %>
+  <li>
+    <%= link_to post.link, "http://#{post.link}" %>
+    <div class="posted-by">
+      Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
+    </div>  
+  </li><br/>
+  <% end %>
+</ol>
