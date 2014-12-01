@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$( document ).ready( function () {
+  $(".create-link").click(function() {
+    $(".hidden-form-container").fadeIn("slow")
+    $(".create-link").hide()
+
+  })
+})
