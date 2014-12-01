@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126165921) do
+ActiveRecord::Schema.define(version: 20141201152138) do
 
   create_table "posts", force: true do |t|
     t.string   "link"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141126165921) do
     t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "users", force: true do |t|
