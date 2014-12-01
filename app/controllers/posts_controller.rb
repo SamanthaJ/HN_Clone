@@ -25,10 +25,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   private
   def post_params
-    params.require(:post).permit(:link, :votes)
+    params.require(:post).permit(:link, :votes, :title)
   end
 end
