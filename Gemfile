@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'simple_form', '~> 3.0.2'
 
+gem 'acts_as_commentable_with_threading'
+
 group :development, :test do 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
