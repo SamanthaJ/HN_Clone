@@ -31,6 +31,7 @@ GEM
       activerecord (>= 4.0)
       activesupport (>= 4.0)
       awesome_nested_set (>= 3.0)
+    acts_as_votable (0.10.0)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (4.0.1)
       execjs
@@ -186,6 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable_with_threading
+  acts_as_votable (~> 0.10.0)
   autoprefixer-rails
   better_errors
   bootstrap-sass (~> 3.3.1)
