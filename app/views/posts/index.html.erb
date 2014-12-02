@@ -9,7 +9,7 @@
   <li>
     <%= link_to post.title, "#{post.link}" %>
     <div class="posted-by">
-      Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
+      Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
     </div>  
   </li><br/>
   <% end %>
