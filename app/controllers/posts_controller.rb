@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @sorted = @posts.sort_by(&:created_at)
   end
 
   def new
@@ -26,7 +27,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    
+    @user_who_commented = @current_user
+    # @comment = Comment.build_from( @article, @user_who_commented.id, "" )
   end
 
   private

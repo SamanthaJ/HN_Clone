@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HN Clone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <%= link_to 'HN Clone', posts_path, class: "navbar-brand" %>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'new', '#' %></li>
-        <li><%= link_to 'top', '#' %></li>
-      </ul>
-      <div class="container">
-        <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-text navbar-right" %>
-        <% else %>
-        <%= link_to "Sign in", new_user_session_path, class: "navbar-text navbar-right" %>
-        <% end %>
-      </div>
-    </div>
-  </nav>    
-  <div class= "container">
+  <head>
+    <title>HN Clone</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>  
+  <%= render 'layouts/header' %>
   <%= flash_messages %>
-    <%= yield %>
-  </div>
-</body>
+    <div class="container background-color">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>
