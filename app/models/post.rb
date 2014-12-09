@@ -3,4 +3,8 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
   acts_as_commentable
+
+  def self.top_posts
+    
+  end
 end

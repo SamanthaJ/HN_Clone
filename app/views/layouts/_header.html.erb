@@ -4,8 +4,8 @@
       <%= link_to 'HN Clone', posts_path, class: "navbar-brand" %>
     </div>
     <ul class="nav navbar-nav">
-      <li><%= link_to 'new', '#' %></li>
-      <li><%= link_to 'top', '#' %></li>
+      <li><%= link_to 'new', posts_path(latest: "true") %></li>
+      <li><%= link_to 'top', posts_path(top: "true") %></li>
       <li><%= link_to 'account', edit_user_registration_path %></li>
     </ul>
     <div class="container">

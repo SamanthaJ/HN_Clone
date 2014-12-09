@@ -7,7 +7,7 @@
 <ol>
   <% @posts.each do |post| %>
   <li>
-    <%= link_to post.title, "#{post.link}" %>
+    <div class="post-link"><%= link_to post.title, "#{post.link}" %></div>
     <div class="posted-by">
       Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
     </div> 

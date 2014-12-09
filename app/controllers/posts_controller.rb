@@ -4,7 +4,12 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
-    @sorted = @posts.sort_by(&:created_at)
+    if params[:latest]
+      @posts = @posts.sort_by(&:created_at).reverse
+    else
+      params[:top]
+      @posts = @posts.sort_by {|post| post.votes_for }
+    end
   end
 
   def new
