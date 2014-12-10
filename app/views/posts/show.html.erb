@@ -1,3 +1,11 @@
-<h1>Post</h1>
-<h3><%= link_to @post.title, "#{@post.link}" %></h3>
-<h5><%= link_to "back", posts_path %></h5>
+<div class="page-content">
+  <div class="post-link">
+    <%= link_to @post.title, "#{@post.link}" %></div>
+  <div class="posted-by">
+    Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.email %>
+  </div> 
+  <!-- render 'comments/form' -->
+  <h5><%= link_to "back", posts_path %></h5>
+</div>
+
+

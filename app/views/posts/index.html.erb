@@ -4,7 +4,7 @@
 </header>
 <br/>
 <br/>
-<ol>
+<ol class="page-content">
   <% @posts.each do |post| %>
   <li>
     <div class="post-link"><%= link_to post.title, "#{post.link}" %></div>
@@ -22,6 +22,10 @@
       downvotes
       <%= post.get_downvotes.size %>
       <% end %>
+    <%= link_to post_path(post), method: :get, class: "btn btn-default btn-xs" do %> <span class="glyphicon glyphicon-pencil"></span>
+    comments
+    <% end %>
+
   </li><br/>
   <% end %>
 </ol>

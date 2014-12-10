@@ -7,9 +7,9 @@ class PostsController < ApplicationController
     if params[:latest]
       @posts = @posts.sort_by(&:created_at).reverse
     else
-      params[:top]
-      @posts = @posts.sort_by {|post| post.votes_for }
+      @posts = Post.order('cached_votes_up DESC')
     end
+    @comments = Comment.all
   end
 
   def new
@@ -32,8 +32,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user_who_commented = @current_user
-    # @comment = Comment.build_from( @article, @user_who_commented.id, "" )
+    @user_who_commented = current_user
+    @comment = Comment.build_from( @post, @user_who_commented.id, "Hey guys this is my comment!" )
   end
 
   def upvote
