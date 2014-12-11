@@ -2,14 +2,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @posts = Post.all
     @post = Post.new
     if params[:latest]
-      @posts = @posts.sort_by(&:created_at).reverse
+      @posts = @posts.sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 10)
     else
-      @posts = Post.order('cached_votes_up DESC')
+      @posts = Post.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)
     end
-    @comments = Comment.all
   end
 
   def new

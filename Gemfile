@@ -31,6 +31,8 @@ gem 'simple_form', '~> 3.0.2'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'will_paginate-bootstrap'
+
 group :development, :test do 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
