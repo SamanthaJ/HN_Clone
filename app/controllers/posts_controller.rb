@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if params[:latest]
       @posts = @posts.sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 10)
     elsif params[:comments]
-      @posts = @posts.sort_by(&:comments).count.paginate(:page => params[:page], :per_page => 10)
+      @posts = @posts.sort_by{|post| post.comments.count}.reverse.paginate(:page => params[:page], :per_page => 10)
     else params[:top] 
       @posts = @posts.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)     
     end
