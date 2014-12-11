@@ -4,7 +4,7 @@
   <div class="posted-by">
     Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.email %>
   </div> 
-  <!-- render 'comments/form' -->
+  <%= render 'comments/form' %>
   <h5><%= link_to "back", posts_path %></h5>
 </div>
 
