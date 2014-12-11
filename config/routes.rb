@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
-
   resources :posts do 
     member do 
       put "like", to:'posts#upvote'

@@ -6,6 +6,7 @@
     <ul class="nav navbar-nav">
       <li><%= link_to 'new', posts_path(latest: "true") %></li>
       <li><%= link_to 'top', posts_path(top: "true") %></li>
+      <li><%= link_to 'most commented', posts_path(comments: "true") %></li>
       <li><%= link_to 'account', edit_user_registration_path %></li>
     </ul>
     <div class="container">

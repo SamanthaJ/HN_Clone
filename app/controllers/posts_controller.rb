@@ -1,12 +1,17 @@
 class PostsController < ApplicationController
+  require 'will_paginate/array'
   before_action :authenticate_user!, except: :index
 
   def index
     @post = Post.new
+    @posts = Post.all
+    @comments = Comment.all
     if params[:latest]
       @posts = @posts.sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 10)
-    else
-      @posts = Post.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)
+    elsif params[:comments]
+      @posts = @posts.sort_by(&:comments).count.paginate(:page => params[:page], :per_page => 10)
+    else params[:top] 
+      @posts = @posts.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)     
     end
   end
 
@@ -32,6 +37,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user_who_commented = current_user
     @comment = Comment.new
+    @comments = Comment.all
+
   end
 
   def upvote
