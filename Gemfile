@@ -29,8 +29,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'simple_form', '~> 3.0.2'
 
-gem 'acts_as_commentable_with_threading'
-
 gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do 
