@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user_who_commented = current_user
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = @post.comments
 
   end
 

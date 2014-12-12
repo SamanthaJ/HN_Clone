@@ -1,8 +1,6 @@
-FactoryGirl.define do
-  factory :post do
-    link "MyString"
-user_id 1
-votes 1
+FactoryGirl.define do   
+  factory :post do 
+    title { Faker::Lorem.sentence }
+    body { Faker::Internet.url}
   end
-
 end

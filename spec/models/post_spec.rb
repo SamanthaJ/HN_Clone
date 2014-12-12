@@ -1,5 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Post, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Post do 
+  it "has a valid factory" do 
+    expect(build(:post)).to be_valid
+  end
+
+  it "is invalid without a title" do 
+    post = build(:post, title: nil)
+    post.valid?
+    expect(post.errors[:title]).to include("can't be blank")
+  end
+
+  it "is invalid without a body" do 
+    post = build(:post, body: nil)
+    post.valid?
+    expect(post.errors[:body]).to include("can't be blank")
+  end
 end
