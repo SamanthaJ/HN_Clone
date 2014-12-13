@@ -1,3 +1,6 @@
+<br/>
+<div class="alert alert-danger" role="alert">
+  <a href="#" class="alert-link"> </a>
 <%= simple_form_for [@post, @comment] do |f| %>
 <% if @comment.errors.any? %>
   <h2>Whoops! Something's not right.</h2>
@@ -8,6 +11,7 @@
       <% end %>
     </ul> 
 <% end %>
+</div>
 <%= f.input :body, label: "Comment" %><br/>
 
 <%= f.button :submit %>
