@@ -1,13 +1,30 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @post = Post.find(params[:id])
+    # @user_who_commented = current_user
+    @comment = Comment.new
+    @comments = @post.comments
+  end
   def create
-    post = Post.find(params[:post_id ])
-    comment = post.comments.create(comment_params)
+    @post = Post.find(params[:post_id ])
+    @comment = @post.comments.create(comment_params)
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @post }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
     
 
-    redirect_to post_path(comment.post)
-  end
+  #   redirect_to post_path(comment.post)
+  # end
 
   private
   def comment_params

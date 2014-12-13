@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   require 'will_paginate/array'
   before_action :authenticate_user!, except: :index
+  
 
   def index
     @post = Post.new

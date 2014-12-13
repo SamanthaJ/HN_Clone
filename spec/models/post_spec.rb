@@ -11,9 +11,9 @@ describe Post do
     expect(post.errors[:title]).to include("can't be blank")
   end
 
-  it "is invalid without a body" do 
-    post = build(:post, body: nil)
+  it "is invalid without a link" do 
+    post = build(:post, link: nil)
     post.valid?
-    expect(post.errors[:body]).to include("can't be blank")
+    expect(post.errors[:link]).to include("can't be blank")
   end
 end

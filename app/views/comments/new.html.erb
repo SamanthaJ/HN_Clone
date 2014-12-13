@@ -1,0 +1,14 @@
+<%= simple_form_for [@post, @comment] do |f| %>
+<% if @comment.errors.any? %>
+  <h2>Whoops! Something's not right.</h2>
+    <p>Please correct the following <%= pluralize(@comment.errors.count, "error") %>:</p>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul> 
+<% end %>
+<%= f.input :body, label: "Comment" %><br/>
+
+<%= f.button :submit %>
+<% end %>
