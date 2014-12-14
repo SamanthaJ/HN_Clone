@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
 
   def new
     @post = Post.find(params[:id])
-    # @user_who_commented = current_user
     @comment = Comment.new
     @comments = @post.comments
   end
+  
   def create
     @post = Post.find(params[:post_id ])
     @comment = @post.comments.create(comment_params)
@@ -20,11 +20,6 @@ class CommentsController < ApplicationController
       end
     end
   end
-
-    
-
-  #   redirect_to post_path(comment.post)
-  # end
 
   private
   def comment_params

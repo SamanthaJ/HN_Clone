@@ -10,14 +10,14 @@
       <li class="list-group-item">
         <%= comment.body %><br/><br/>
         <div class="posted-by">Posted: <%= time_ago_in_words(comment.created_at) %> ago by: <%= current_user.email %>
-          </div>
-        </li>
-      </ul>
-      <% end %>
-      <%= link_to "Submit a comment", '#', class: "links create-link" %>
-      <div class="hidden-form-container"><%= render 'comments/form' %></div>
-      <h5><%= link_to "back", posts_path %></h5>
-</div>
+        </div>
+      </li>
+    </ul>
+    <% end %>
+    <%= link_to "Submit a comment", '#', class: "links create-link" %>
+    <div class="hidden-form-container"><%= render 'comments/form' %></div>
+    <h5><%= link_to "back", posts_path %></h5>
+  </div>
 
 
   

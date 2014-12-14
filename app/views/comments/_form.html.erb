@@ -1,7 +1,6 @@
 <%= simple_form_for [@post, @comment] do |f| %>
-<%= f.error_notification %>
 
-<%= f.input :body, label: "Comment" %><br/>
+  <%= f.input :body, label: "Comment" %><br/>
 
-<%= f.button :submit %>
+  <%= f.button :submit %>
 <% end %>
