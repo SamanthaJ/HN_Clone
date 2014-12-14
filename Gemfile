@@ -34,12 +34,13 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do 
-  gem 'sqlite3'
+  
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
 group :test do 
+  gem 'sqlite3'
   gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
@@ -47,6 +48,7 @@ group :test do
 end
 
 group :development do 
+  gem 'sqlite3'
   gem 'better_errors'
   gem 'spring'
 end
