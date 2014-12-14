@@ -1,20 +1,21 @@
-<br/>
-<div class="alert alert-danger" role="alert">
-  <a href="#" class="alert-link"> </a>
-
-<%= simple_form_for @post do |f| %>
-<% if @post.errors.any? %>
-  <h2>Whoops! Something's not right.</h2>
+<div class= "page-content">
+  <br/>
+  <div class="alert alert-danger" role="alert">
+    <a href="#" class="alert-link"> </a>
+    <%= simple_form_for @post do |f| %>
+    <% if @post.errors.any? %>
+    <h2>Whoops! Something's not right.</h2>
     <p>Please correct the following <%= pluralize(@post.errors.count, "error") %>:</p>
     <ul>
       <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
     </ul> 
-<% end %>
-</div>
-<%= f.input :title %><br/>
-<%= f.input :link %><br/>
+    <% end %>
+  </div>
+  <%= f.input :title %><br/>
+  <%= f.input :link, as: :custom_url %><br/>
 
-<%= f.button :submit %>
-<% end %>
+  <%= f.button :submit %>
+  <% end %>
+</div>

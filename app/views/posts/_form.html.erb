@@ -1,15 +1,15 @@
 <%= simple_form_for @post do |f| %>
 <% if @post.errors.any? %>
-  <h2>Errors:</h2>
-    <h3>Please correct the following <%= pluralize(@post.errors.count, "error") %>:</h3>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul> 
+<h2>Errors:</h2>
+<h3>Please correct the following <%= pluralize(@post.errors.count, "error") %>:</h3>
+<ul>
+  <% @post.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul> 
 <% end %>
 <%= f.input :title %><br/>
-<%= f.input :link %><br/>
+<%= f.input :link, as: :custom_url %><br/>
 
 <%= f.button :submit %>
 <% end %>
