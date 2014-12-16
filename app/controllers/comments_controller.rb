@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id ])
     @comment = @post.comments.create(comment_params)
-    @comment.user = current_user
+    @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

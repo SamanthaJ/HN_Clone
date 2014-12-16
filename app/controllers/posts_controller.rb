@@ -36,7 +36,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user_who_commented = @post.user
     @comment = Comment.new
     @comments = @post.comments
   end

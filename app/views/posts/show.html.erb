@@ -9,7 +9,7 @@
     <ul class="list-group">
       <li class="list-group-item">
         <%= comment.body %><br/><br/>
-        <div class="posted-by">Posted: <%= time_ago_in_words(comment.created_at) %> ago by: <%= @user_who_commented.email %>
+        <div class="posted-by">Posted: <%= time_ago_in_words(comment.created_at) %> ago by: <%= comment.user.email %>
         </div>
       </li>
     </ul>
