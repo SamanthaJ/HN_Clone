@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to 'HN Clone', posts_path, class: "navbar-brand" %>
+      <%= link_to 'HN Clone', posts_path(user_activity: "true"), class: "navbar-brand" %>
     </div>
     <ul class="nav navbar-nav">
       <li><%= link_to 'new', posts_path(latest: "true") %></li>

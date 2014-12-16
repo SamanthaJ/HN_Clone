@@ -5,6 +5,6 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   def user_activity
-    upvotes * 3 + comments.count
+    get_upvotes.size * 3 + comments.count
   end
 end

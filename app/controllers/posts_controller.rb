@@ -7,10 +7,12 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.all
     @comments = Comment.all
-    if params[:latest]
-      @posts = @posts.sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 10)
+    if params[:user_activity]
+      @posts = @posts.sort_by(&:user_activity).reverse.paginate(:page => params[:page], :per_page => 10)
+    elsif params[:latest]
+      @posts = @posts.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
     elsif params[:coments]
-      @posts = @posts.sort_by{|post| post.comments.count}.reverse.paginate(:page => params[:page], :per_page => 10)
+      @posts = @posts.order('comments').paginate(:page => params[:page], :per_page => 10)
     else params[:top] 
       @posts = @posts.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)     
     end
