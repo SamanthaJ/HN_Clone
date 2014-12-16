@@ -1,6 +1,6 @@
 <div class="page-content">
   <div class="post-link">
-    <%= link_to @post.title, "#{@post.link}" %></div>
+    <%= link_to @post.title, "http://#{@post.link}" %></div>
     <div class="posted-by">
       Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.email %>
     </div> <br/>
