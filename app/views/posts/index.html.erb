@@ -4,30 +4,36 @@
 </header>
 <br/>
 <br/>
-<ul class="page-content">
-  <% @posts.each do |post| %>
-  <li>
-    <div class="post-link"><%= link_to post.title, "http://#{post.link}" %></div>
-    <div class="posted-by">
-      Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
-    </div> 
-    <div class="btn-group">
-      <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-xs" do %>
-      <span class="glyphicon glyphicon-chevron-up"></span>
-      upvotes
-      <%= post.get_upvotes.size %> 
+<div class="col-md-12">
+  <ul class="page-content">
+    <% @posts.each do |post| %>
+    <div class="row">
+      <li>
+        <div class="post-link"><%= link_to post.title, "http://#{post.link}" %></div>
+        <div class="posted-by">
+          Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
+        </div>
+        <div class="btn-group">
+          <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-xs" do %>
+          <span class="glyphicon glyphicon-chevron-up"></span>
+          upvotes
+          <%= post.get_upvotes.size %>
+          <% end %>
+          <%= link_to dislike_post_path(post), method: :put, class: "btn btn-default btn-xs" do %>
+          <span class="glyphicon glyphicon-chevron-down"></span>
+          downvotes
+          <%= post.get_downvotes.size %>
+          <% end %>
+          <%= link_to post_path(post), method: :get, class: "comments-button btn btn-default btn-xs" do %> <span class="glyphicon glyphicon-pencil"></span>
+          comments
+          <%= post.comments.count %>
+          <% end %>
+        </li>
+        <br/>
+      </div>
       <% end %>
-      <%= link_to dislike_post_path(post), method: :put, class: "btn btn-default btn-xs" do %>
-      <span class="glyphicon glyphicon-chevron-down"></span>
-      downvotes
-      <%= post.get_downvotes.size %>
-      <% end %>
-      <%= link_to post_path(post), method: :get, class: "comments-button btn btn-default btn-xs" do %> <span class="glyphicon glyphicon-pencil"></span>
-      comments
-      <%= post.comments.count %>
-      <% end %>
-
-    </li><br/>
-    <% end %>
-  </ul>
-  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+    </ul>
+  </div>
+  <div class="text-center">
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  </div>

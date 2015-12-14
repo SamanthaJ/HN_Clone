@@ -5,19 +5,17 @@
 /* general page styling */
 
 
-body { 
-  padding-bottom: 70px; 
-  padding-top: 100px; 
-  padding-left: 20px; 
-  padding-right: 20px;
+body {
+  padding-top: 100px;
 }
 
 .hidden-form-container {
   display: none;
 }
 
-ul.page-content {
+ul{
   list-style-type: none;
+  padding: 0px;
 }
 
 .page-content {
@@ -100,10 +98,3 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
-
-
-
-
-
-
-
