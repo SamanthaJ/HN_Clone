@@ -1,0 +1,17 @@
+header {
+  margin-top: 25px;
+  padding-top: 5px;
+  border-top: 1px solid #FF6600;
+  color: #777;
+}
+
+.navbar-inverse .navbar-header > a {
+  color: #FF6600;
+  font-weight: 100;
+  font-size: 20px;
+  transition: all .5s ease-in-out;
+  &:hover {
+    color: #FF6600;
+    transform: scale(1.1);
+  }
+}

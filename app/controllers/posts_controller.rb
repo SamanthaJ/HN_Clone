@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   require 'will_paginate/array'
   before_action :authenticate_user!, except: :index
-  
 
   def index
     @post = Post.new
@@ -13,8 +12,8 @@ class PostsController < ApplicationController
       @posts = @posts.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
     elsif params[:coments]
       @posts = @posts.order('comments').paginate(:page => params[:page], :per_page => 10)
-    else params[:top] 
-      @posts = @posts.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)     
+    else params[:top]
+      @posts = @posts.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)
     end
   end
 
@@ -45,17 +44,16 @@ class PostsController < ApplicationController
   def upvote
     @post = Post.find(params[:id])
     @post.upvote_by current_user
-    
+
     redirect_to :back
   end
 
   def downvote
     @post = Post.find(params[:id])
-    @post.downvote_by current_user
-    
+    @post.downvote_by current_user  
+
     redirect_to :back
   end
-
 
   private
   def post_params

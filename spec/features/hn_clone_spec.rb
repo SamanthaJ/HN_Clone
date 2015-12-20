@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'HN Clone' do 
+feature 'HN Clone' do
   before :each do
     @user = create(:user)
     log_in
@@ -9,20 +9,20 @@ feature 'HN Clone' do
   scenario 'displays home page' do
 
     expect(page).to have_content('Submit a link')
-  end 
+  end
 
-  scenario "creates new post" do 
+  scenario "creates new post" do
     create_post
 
     expect(page).to have_content('successfully created')
   end
 
-  scenario "creates new comment" do 
+  scenario "creates new comment" do
     create_post
     click_link 'Submit a comment'
     @comment = build(:comment)
     fill_in 'Comment', with: '@comment.body'
-    click_button 'Create Comment' 
+    click_button 'Create Comment'
 
     expect(page).to have_content('successfully created')
   end
@@ -43,4 +43,3 @@ def create_post
   fill_in 'Link', with: '@post.link'
   click_button 'Create Post'
 end
-

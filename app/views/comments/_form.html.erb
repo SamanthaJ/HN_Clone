@@ -1,6 +1,8 @@
-<%= simple_form_for [@post, @comment] do |f| %>
-
-  <%= f.input :body, label: "Comment" %><br/>
-
-  <%= f.button :submit %>
-<% end %>
+<form>
+  <div class="form-group">
+    <%= simple_form_for [@post, @comment] do |f| %>
+      <%= f.input :body, label: 'Comment', required: false %><br/>
+      <%= f.button :submit, class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
+</form>

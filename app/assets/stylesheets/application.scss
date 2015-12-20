@@ -1,53 +1,44 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "header";
 
-
-/* general page styling */
-
+/* GENERAL */
 
 body {
   padding-top: 100px;
 }
 
-.hidden-form-container {
-  display: none;
-}
+a, a:hover { text-decoration: none;}
+
+.hidden-form-container { display: none; }
 
 ul{
   list-style-type: none;
   padding: 0px;
 }
 
-.page-content {
-  display: none;
+.page-content { display: none; }
+
+.background-color { background-color: #EFEFE7; }
+
+textarea, input {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-
-.background-color {
-  background-color: #EFEFE7;
-}
-
-
-/* navbar */
-
-
-.navbar-inverse .navbar-header > a {
- color: #FF6600;
-}
-
-.navbar-brand {
-  font-weight: 100;
-  font-size: 20px;
-}
-
 
 /* links */
-
 
 .create-link {
   font-size: 25px;
 }
 
 .post-link {
+  width: 30%;
   font-size: 15px;
 }
 
@@ -59,17 +50,10 @@ ul{
 /* header */
 
 
-header {
-  margin-top: 25px;
-  padding-top: 5px;
-  border-top: 1px solid #FF6600;
-  color: #777;
-}
+
 
 
 /* footer */
-
-
 footer {
   margin-top: 45px;
   padding-top: 5px;
