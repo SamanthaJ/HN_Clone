@@ -10,8 +10,8 @@ class PostsController < ApplicationController
       @posts = @posts.sort_by(&:user_activity).reverse.paginate(:page => params[:page], :per_page => 10)
     elsif params[:latest]
       @posts = @posts.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
-    elsif params[:coments]
-      @posts = @posts.order('comments').paginate(:page => params[:page], :per_page => 10)
+    elsif params[:comment_count]
+      @posts = @posts.sort_by(&:comment_count).reverse.paginate(:page => params[:page], :per_page => 10)
     else params[:top]
       @posts = @posts.order('cached_votes_up DESC').paginate(:page => params[:page], :per_page => 10)
     end
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
   def downvote
     @post = Post.find(params[:id])
-    @post.downvote_by current_user  
+    @post.downvote_by current_user
 
     redirect_to :back
   end

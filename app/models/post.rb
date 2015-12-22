@@ -7,4 +7,8 @@ class Post < ActiveRecord::Base
   def user_activity
     get_upvotes.size * 3 + comments.count
   end
+
+  def comment_count
+    comments.count
+  end
 end
